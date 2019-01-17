@@ -1,14 +1,19 @@
 import React from 'react'
 
-
 import './style.css'
 
-const Card = () => {
-  return (
-    <div className='card'>
-      <div className='card-body'>
-        <img></img>
-      </div>
+const Card = props => (
+  <div
+    className='card'
+    onClick={() => props.count(props.id)}
+  >
+    <div
+      className="img-container"
+    >
+      <img alt={props.name} src={props.image} />
     </div>
-  )
-}
+  </div>
+);
+
+
+export default Card
