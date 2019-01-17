@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "master-sword",
+    "image": "master-sword.png"
+  },
+  {
+    "id": 2,
+    "name": "triforce",
+    "image": "triforce.png"
+  },
+  {
+    "id": 3,
+    "name": "hylian-shield",
+    "image": "hylian-shield.png"
+  },
+  {
+    "id": 4,
+    "name": "slingshot",
+    "image": "slingshot.png"
+  },
+  {
+    "id": 5,
+    "name": "bomb",
+    "image": "bomb.png"
+  },
+  {
+    "id": 6,
+    "name": "boomerang",
+    "image": "boomerang.png"
+  },
+  {
+    "id": 7,
+    "name": "fairy",
+    "image": "fairy.png"
+  },
+  {
+    "id": 8,
+    "name": "heart-container",
+    "image": "heart-container.png"
+  },
+  {
+    "id": 9,
+    "name": "rupee",
+    "image": "rupee.png"
+  },
+  {
+    "id": 10,
+    "name": "boss-key",
+    "image": "boss-key.png"
+  },
+  {
+    "id": 11,
+    "name": "ocarina",
+    "image": "ocarina.png"
+  },
+  {
+    "id": 12,
+    "name": "compass",
+    "image": "compass.png"
+  }
+]
