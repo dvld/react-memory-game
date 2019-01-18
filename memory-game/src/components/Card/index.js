@@ -5,12 +5,12 @@ import './style.css'
 const Card = props => (
   <div
     className='card'
-    onClick={() => props.count(props.id)}
+    onClick={props.imageClicked}
   >
     <div
       className="img-container"
     >
-      <img alt={props.name} src={props.image} />
+      <img className='card-img-top' alt={props.name} src={props.image} />
     </div>
   </div>
 );
