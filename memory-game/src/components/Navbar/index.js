@@ -1,19 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 import './style.css'
 
-const Navbar = (props) => {
-  return (
-    <div>
+class Navbar extends Component {
+  render() {
+    return (
       <nav>
         <ul>
-          <li>MemoReact</li>
-          <li>Click any image to start!</li>
-          <li>Score : {props.score} | High Score : {props.highScore}</li>
+          <li className='left-indent'>MemoReact</li>
+          <li className='centered'>Click any image to start!</li>
+          <li className='right-indent'>Score : {this.props.score}</li>
         </ul>
       </nav>
-    </div>
-  );
+    );
+  }
 }
 
 export default Navbar

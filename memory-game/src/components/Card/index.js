@@ -5,7 +5,7 @@ import './style.css'
 const Card = props => (
   <div
     className='card'
-    onClick={props.imageClicked}
+    onClick={props.cardClick}
   >
     <div
       className="img-container"

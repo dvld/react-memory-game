@@ -1,0 +1,30 @@
+.navbar li {
+  display: block;
+  text-align: center;
+}
+
+/* .left-indent {
+  width: 15%;
+}
+
+.centered {
+	width: 70%;
+}
+
+.right-indent {
+  width: 15%;
+} */
+
+.navbar {
+  background: #490549;
+  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+}
+
+li {
+  color: black;
+  padding: 15px 0;
+}
+
+body {
+  font-size: 24px;
+}

@@ -11,6 +11,9 @@ import Footer from './components/Footer'
 // data
 import images from './images.json'
 
+// styling
+import './App.css'
+
 class App extends Component {
   state = {
     images,
@@ -18,46 +21,63 @@ class App extends Component {
     score: 0
   };
 
-  // // when a card is clicked, it is removed from the array
-  // cardClick = event => {
-  //   const currentCard = event.target.alt;
-  //   const hasBeenClicked = this.state.clicked.indexOf(currentCard) > -1;
+  // function to determine if card has been clicked
+  ifHasBeenClicked = id => {
+    let wasClicked = this.state.clicked;
+    let currentScore = this.state.score;
 
-  //   // if a card is clicked a second time,
-  //   // the game resets and shuffles the cards
-  //   if (hasBeenClicked) {
-  //     this.setState({
-  //       images: this.state.images.sort((a, b) => {
-  //         return 0.5 - Math.random();
-  //       }),
-  //       clicked: [],
-  //       score: 0
-  //     });
-  //     alert('Game over. Continue?');
-  //   } else {
-  //     this.setState({
-  //       images: this.state.images.sort((a, b) => {
-  //         return 0.5 - Math.random();
-  //       }),
-  //       clicked: this.state.clicked.concat(currentCard),
-  //       score: this.state.score + 1
-  //     },
+    // if id of clicked image exists (meaning a clicked image already exists in the state.clicked array)
+    if (wasClicked.includes(id)) {
+      // run reset function
+      reset();
+      // return game over alert
+      return alert('Game over! Try Again');
+    } else {
+      // push the clicked image to the state.clicked array
+      wasClicked.push(id);
+      // increment score
+      this.state.score++;
 
-  //       () => {
-  //         if (this.state.score === 12) {
-  //           alert('Congratulations! You won!');
-  //           this.setState({
-  //             images: this.state.images.sort((a, b) => {
-  //               return 0.5 - Math.random();
-  //             }),
-  //             clicked: [],
-  //             score: 0
-  //           });
-  //         }
-  //       }
-  //     );
-  //   }
-  // };
+      // if state.score equals 12
+      if (currentScore === 12) {
+        // run reset function
+        reset();
+        // return win alert
+        return alert('Nice, you got them all!');
+      };
+    }
+
+    // this.setState({
+    //   images,
+    //   clicked: [],
+    //   score: wasClicked.length,
+    // });
+  }
+
+
+
+  // function to handle card clicks
+  // handleClick = event => {
+
+  // }
+
+  // function to randomize card order
+  // rearrange = event => {
+  //   event.preventDefault();
+  //   this.state.images.forEach((image) => {
+  //     console.log(image);
+  //   });
+  // }
+
+  // function to reset game
+  reset = event => {
+    event.preventDefault();
+    this.setState({
+      clicked: [],
+      score: 0
+    });
+  }
+
 
   render() {
     return (
@@ -66,18 +86,18 @@ class App extends Component {
           score={this.state.score}
         />
         <Jumbotron />
-        <div>
-          {this.state.images.map(images => (
+        <div className='wrapper'>
+          {this.state.images.map(image => (
             <Card
-              clicked={this.clicked}
-              id={images.id}
-              key={images.id}
-              name={images.name}
-              image={images.image}
+              onClick={this.handleClick}
+              id={image.id}
+              key={image.id}
+              name={image.name}
+              image={image.image}
             />
           ))}
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }
