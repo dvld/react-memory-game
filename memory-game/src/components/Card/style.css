@@ -4,9 +4,17 @@
   margin: 15px 45px;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   border: 3px solid white;
+  float: left;
 }
 
 img {
   width: 120px;
   height: 130px;
+  display: block;
+  float: left;
+  margin: 0;
+}
+
+img-container {
+  max-width: 600px;
 }

@@ -1,4 +1,4 @@
-// 
+
 // react
 import React, { Component } from 'react';
 
@@ -9,7 +9,7 @@ import Card from './components/Card';
 import Footer from './components/Footer';
 
 // data
-import images from './images.json';
+import Images from './images.json';
 
 // styling
 // import './App.css'
@@ -17,43 +17,43 @@ import images from './images.json';
 class App extends Component {
 
   state = {
-    images,
-    clicked: [],
+    Images,
+    Clicked: [],
     score: 0,
     highScore: 0
   };
 
   handleClick = event => {
     const index = event.target.alt;
-    const clicked = this.state.clicked.indexOf(index) > -1;
-    console.log(clicked);
+    const lastClicked = this.state.Clicked.indexOf(index) > -1;
+    console.log(`Last clicked ${lastClicked}`);
 
-    if (clicked) {
+    if (lastClicked) {
       this.setState({
-        images: this.state.images.sort((a, b) => {
+        Images: this.state.Images.sort((a, b) => {
           return 0.5 - Math.random();
         }),
-        clicked: [],
+        Clicked: [],
         score: 0
       });
       alert('Game over! Try Again');
     } else {
       this.setState(
         {
-          images: this.state.images.sort((a, b) => {
+          Images: this.state.Images.sort((a, b) => {
             return 0.5 - Math.random();
           }),
-          clicked: this.state.clicked.concat(index),
+          lastClicked: this.state.Clicked.push(index),
           score: this.state.score + 1
         },
         () => {
           if (this.state.score === 12) {
             alert('You win!');
             this.setState({
-              images: this.state.images.sort((a, b) => {
+              Images: this.state.Images.sort((a, b) => {
                 return 0.5 - Math.random();
               }),
-              clicked: [],
+              lastClicked: [],
               score: 0
             });
           }
@@ -65,11 +65,14 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar
+          score={this.state.score}
+        />
         <Jumbotron />
-        <div>
-          {this.state.images.map(images => (
+        <div className='card-area'>
+          {this.state.Images.map(images => (
             <Card
+              className='wrapper'
               id={images.id}
               key={images.id}
               name={images.name}

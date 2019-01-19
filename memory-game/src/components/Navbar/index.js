@@ -6,11 +6,9 @@ class Navbar extends Component {
   render() {
     return (
       <nav>
-        <ul>
-          <li className='left-indent'>MemoReact</li>
-          <li className='centered'>Click any image to start!</li>
-          <li className='right-indent'>Score : {this.props.score}</li>
-        </ul>
+        <div className='left-indent'>MemoReact</div>
+        <div className='centered'>Click any image to start!</div>
+        <div className='right-indent'>Score : {this.props.score}</div>
       </nav>
     );
   }
