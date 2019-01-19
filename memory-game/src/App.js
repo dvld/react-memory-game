@@ -1,99 +1,80 @@
 // 
 // react
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 // components
-import Navbar from './components/Navbar'
-import Jumbotron from './components/Jumbotron'
-import Card from './components/Card'
-import Footer from './components/Footer'
+import Navbar from './components/Navbar';
+import Jumbotron from './components/Jumbotron';
+import Card from './components/Card';
+import Footer from './components/Footer';
 
 // data
-import images from './images.json'
+import images from './images.json';
 
 // styling
-import './App.css'
+// import './App.css'
 
 class App extends Component {
+
   state = {
     images,
     clicked: [],
-    score: 0
+    score: 0,
+    highScore: 0
   };
 
-  // function to determine if card has been clicked
-  ifHasBeenClicked = id => {
-    let wasClicked = this.state.clicked;
-    let currentScore = this.state.score;
+  handleClick = event => {
+    const index = event.target.alt;
+    const clicked = this.state.clicked.indexOf(index) > -1;
+    console.log(clicked);
 
-    // if id of clicked image exists (meaning a clicked image already exists in the state.clicked array)
-    if (wasClicked.includes(id)) {
-      // run reset function
-      reset();
-      // return game over alert
-      return alert('Game over! Try Again');
+    if (clicked) {
+      this.setState({
+        images: this.state.images.sort((a, b) => {
+          return 0.5 - Math.random();
+        }),
+        clicked: [],
+        score: 0
+      });
+      alert('Game over! Try Again');
     } else {
-      // push the clicked image to the state.clicked array
-      wasClicked.push(id);
-      // increment score
-      this.state.score++;
-
-      // if state.score equals 12
-      if (currentScore === 12) {
-        // run reset function
-        reset();
-        // return win alert
-        return alert('Nice, you got them all!');
-      };
+      this.setState(
+        {
+          images: this.state.images.sort((a, b) => {
+            return 0.5 - Math.random();
+          }),
+          clicked: this.state.clicked.concat(index),
+          score: this.state.score + 1
+        },
+        () => {
+          if (this.state.score === 12) {
+            alert('You win!');
+            this.setState({
+              images: this.state.images.sort((a, b) => {
+                return 0.5 - Math.random();
+              }),
+              clicked: [],
+              score: 0
+            });
+          }
+        }
+      );
     }
-
-    // this.setState({
-    //   images,
-    //   clicked: [],
-    //   score: wasClicked.length,
-    // });
-  }
-
-
-
-  // function to handle card clicks
-  // handleClick = event => {
-
-  // }
-
-  // function to randomize card order
-  // rearrange = event => {
-  //   event.preventDefault();
-  //   this.state.images.forEach((image) => {
-  //     console.log(image);
-  //   });
-  // }
-
-  // function to reset game
-  reset = event => {
-    event.preventDefault();
-    this.setState({
-      clicked: [],
-      score: 0
-    });
-  }
-
+  };
 
   render() {
     return (
       <div>
-        <Navbar
-          score={this.state.score}
-        />
+        <Navbar />
         <Jumbotron />
-        <div className='wrapper'>
-          {this.state.images.map(image => (
+        <div>
+          {this.state.images.map(images => (
             <Card
+              id={images.id}
+              key={images.id}
+              name={images.name}
+              image={images.image}
               onClick={this.handleClick}
-              id={image.id}
-              key={image.id}
-              name={image.name}
-              image={image.image}
             />
           ))}
         </div>
@@ -103,5 +84,5 @@ class App extends Component {
   }
 }
 
-export default App
 
+export default App
