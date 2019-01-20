@@ -17,6 +17,7 @@ If an image is clicked twice it's game over, but you can always try again!
 This application was built using React  
 App functionality makes use of handleClick function containing conditional statements to set and update state
 Contains 4 components (Navbar, Jumbotron, Card, and Footer)
+
 ---
 
 - Navbar
