@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 import Images from './images.json';
 
 // styling
-// import './App.css'
+import './App.css'
 
 class App extends Component {
 
@@ -34,7 +34,7 @@ class App extends Component {
           return 0.5 - Math.random();
         }),
         Clicked: [],
-        score: 0
+        score: 0,
       });
       alert('Game over! Try Again');
     } else {
@@ -44,7 +44,7 @@ class App extends Component {
             return 0.5 - Math.random();
           }),
           lastClicked: this.state.Clicked.push(index),
-          score: this.state.score + 1
+          score: this.state.score + 1,
         },
         () => {
           if (this.state.score === 12) {
@@ -67,6 +67,7 @@ class App extends Component {
       <div>
         <Navbar
           score={this.state.score}
+          highScore={this.state.highScore}
         />
         <Jumbotron />
         <div className='card-area'>

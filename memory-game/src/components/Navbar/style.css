@@ -3,7 +3,9 @@ nav {
   text-align: center;
   font-size: 24px;
   font-weight: bold;
-  margin: 1% 0 1% 0;
+  padding: 1% 0 1% 0;
+  background-color: rgb(61, 40, 0);
+  color: gold;
 }
 
 .left-indent {

@@ -8,7 +8,7 @@ class Navbar extends Component {
       <nav>
         <div className='left-indent'>MemoReact</div>
         <div className='centered'>Click any image to start!</div>
-        <div className='right-indent'>Score : {this.props.score}</div>
+        <div className='right-indent'>Score : {this.props.score} | High Score : {this.props.highScore}</div>
       </nav>
     );
   }

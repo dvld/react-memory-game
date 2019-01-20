@@ -3,3 +3,17 @@ body {
   margin: 0 0;
   font-family: sans-serif;
 }
+
+.jumbotron {
+  background-color: gold;
+  color: white;
+}
+
+.jumbotron h1 {
+  font-weight: bold;
+}
+
+.jumbotron p {
+  font-size: 24px;
+  font-weight: bold;
+}
