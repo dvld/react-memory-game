@@ -16,6 +16,7 @@ import './App.css'
 
 class App extends Component {
 
+  // initial state
   state = {
     Images,
     Clicked: [],
@@ -23,37 +24,76 @@ class App extends Component {
     highScore: 0
   };
 
+  // what happens when cards are clicked
   handleClick = event => {
+
+    // variables
     const index = event.target.alt;
     const lastClicked = this.state.Clicked.indexOf(index) > -1;
+
+    // test
     console.log(`Last clicked ${lastClicked}`);
 
+    // if the 'lastClicked' image already exists within in the 'Clicked' array
     if (lastClicked) {
+
+      // set state to...
       this.setState({
+
+        // rearrange images
         Images: this.state.Images.sort((a, b) => {
           return 0.5 - Math.random();
         }),
+
+        // empty the 'Clicked' array
         Clicked: [],
+
+        // reset 'score' to zero
         score: 0,
       });
+
+      // alert loss
       alert('Game over! Try Again');
+
+      // otherwise (image does not already exist in 'Clicked array)
     } else {
+
+      // set state to...
       this.setState(
         {
+
+          // rearrange images
           Images: this.state.Images.sort((a, b) => {
             return 0.5 - Math.random();
           }),
+
+          // push 'lastClicked' image to 'Clicked' array
           lastClicked: this.state.Clicked.push(index),
+
+          // increment 'score'
           score: this.state.score + 1,
         },
+
         () => {
+
+        // if 'score' reaches 12
           if (this.state.score === 12) {
+
+            // alert win
             alert('You win!');
+
+            // set state to...
             this.setState({
+
+              // rearrange images
               Images: this.state.Images.sort((a, b) => {
                 return 0.5 - Math.random();
               }),
+
+              // empty 'lastClicked' array
               lastClicked: [],
+
+              // reset 'score' to zero
               score: 0
             });
           }
