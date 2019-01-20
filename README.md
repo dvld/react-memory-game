@@ -14,21 +14,27 @@ If an image is clicked twice it's game over, but you can always try again!
 
 ### How it works
 
-This application was built using React  
-App functionality makes use of handleClick function containing conditional statements to set and update state
+This application was built using React
+
+App functionality makes use conditional statements to set and update state
+
 Contains 4 components (Navbar, Jumbotron, Card, and Footer)
 
 ---
 
-- Navbar
+* Navbar
+
   Contains some text and displays score using React state
   
-- Jumbotron
+* Jumbotron
+
   Displays game instructions
   
-- Card
+* Card
+
   Dynamically generated clickable cards
   Cards rearrange after every click
   
-- Footer
+* Footer
+
   Developer info
