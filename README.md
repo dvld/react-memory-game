@@ -38,3 +38,9 @@ Contains 4 components (Navbar, Jumbotron, Card, and Footer)
 * Footer
 
   Developer info
+  
+---
+
+#### Deployed with Github pages
+
+* https://dvld.github.io/react-memory-game/
